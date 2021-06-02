@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import App from './App';
 import { name as appName } from './app.json';
 import HelloScreen from './HelloScreen';
+import ColorScreen from './ColorScreen';
 
 const Stack = createStackNavigator();
 
@@ -13,6 +14,7 @@ const linking = {
   config: {
     screens: {
       Hello: 'hello/:id',
+      Color: 'color/:colorId',
     },
   },
 };
@@ -26,6 +28,11 @@ export default function AppContainer() {
           name="Hello"
           component={HelloScreen}
           options={{ title: 'Hello' }}
+        />
+        <Stack.Screen
+          name="Color"
+          component={ColorScreen}
+          options={{ title: 'Color' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
