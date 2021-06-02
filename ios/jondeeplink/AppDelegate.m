@@ -1,3 +1,4 @@
+#import <React/RCTLinkingManager.h>
 #import "AppDelegate.h"
 
 #import <React/RCTBridge.h>
@@ -59,4 +60,11 @@ static void InitializeFlipper(UIApplication *application) {
 #endif
 }
 
+// enable deep link with ios 9.x and newer
+- (BOOL)application:(UIApplication *)application
+   openURL:(NSURL *)url
+   options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+  return [RCTLinkingManager application:application openURL:url options:options];
+}
 @end
